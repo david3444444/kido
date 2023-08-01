@@ -1,0 +1,32 @@
+import time
+
+def add_message(sender, message):
+    print(f"{sender}: {message}")
+
+def send_message(user_input):
+    time.sleep(1)
+    if user_input.strip() == "":
+        return "Error: Empty message"
+
+    print("AI is typing...")
+    time.sleep(5)
+    if "hi" in user_input.lower() or "hello" in user_input.lower():
+        return "Hi! I'm Christian, your AI assistant. What may I help you with?"
+    else:
+        return "Sorry, Christian, but I am still in development."
+
+def main():
+    print("Welcome to Messenger!")
+    print("Type 'exit' to end the chat.\n")
+
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() == "exit":
+            print("Chat ended.")
+            break
+
+        response = send_message(user_input)
+        add_message("AI", response)
+
+if __name__ == '__main__':
+    main()
